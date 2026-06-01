@@ -1,0 +1,9 @@
+*.apk
+__pycache__/
+*.log
+reports/
+*.report
+*.html
+*.pdf
+.antigravitycli/
+.geminiignore

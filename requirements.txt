@@ -1,0 +1,26 @@
+# APKOwl runtime dependencies
+# ---------------------------------------------------------------------------
+# Core (required) — pure-Python, install with: pip install -r requirements.txt
+click>=8.1.0          # command-line interface
+rich>=13.0.0          # coloured terminal output, tables, progress (optional but
+                      # strongly recommended; APKOwl degrades to plain text if
+                      # it is missing)
+cryptography>=41.0.0  # X.509 / PKCS#7 certificate parsing for the certs phase
+                      # (falls back to `keytool` if unavailable)
+
+# ---------------------------------------------------------------------------
+# Optional dynamic-analysis tooling.
+# These are NOT pip-installable libraries used by APKOwl directly; they are
+# external command-line tools the active phases drive when a device/emulator is
+# present. Install them via your distro / pip as shown below. APKOwl detects
+# what is available at runtime and degrades gracefully.
+#
+#   frida-tools       # Frida CLI + frida-server workflow (phase 6)
+#   objection         # optional runtime mobile exploration
+#   mitmproxy         # TLS-intercepting proxy (phase 7)
+#
+# On Parrot / Debian / Kali:
+#   sudo apt install apktool jadx dex2jar android-tools-adb \
+#                    default-jdk-headless apksigner zipalign binutils file
+#   pip install frida-tools objection mitmproxy
+# ---------------------------------------------------------------------------
